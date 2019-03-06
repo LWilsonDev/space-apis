@@ -16,6 +16,15 @@ body {
 
 p {
   line-height: 1.5;
+  font-size: 1.2em;
+}
+
+.info {
+  margin-top: 40px;
+}
+.page-title {
+  margin-top: 60px;
+
 }
 #map {
         height: 400px;  /* The height is 400 pixels */
@@ -41,6 +50,9 @@ ul {
   font-size: 1.5em;
 }
 
+li {
+  line-height: 2;
+}
 .spaceperson {
   display: none;
 }
@@ -60,8 +72,12 @@ ul {
 .rocket-img {
   margin: 40px;
 }
+
+.container-fluid {
+  padding: 0px;
+}
 .iss-img {
-  width: 100%;
+  min-width: 100%;
   height: auto;
   margin-top: 40px;
 }

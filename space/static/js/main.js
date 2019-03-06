@@ -34,7 +34,7 @@
         type : "GET",
         success: function(data) {
           console.log(data);
-          $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + ', ' + data['cc'] + '</span>');
+          $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + " " + data['cc'] + '</span>');
           var lat = data['lat'];
           var lng = data['lon'];
           var location = {lat: parseFloat(lat), lng: parseFloat(lng)};

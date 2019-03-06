@@ -9,17 +9,21 @@
   <div class='row'>
 
     <div class='col text-center'>
-      <img class='rocket-img' src="{% static 'images/icon-rocket.png' %}"/>
-        <h1 class='page-title mt-4 '>The International Space Station</h1>
-      </div>
+        <h1 class='page-title '>The International Space Station</h1>
+
+      <p class='info'>
+        The International Space Station travels in orbit around Earth at a speed of roughly 17,150 miles per hour (that's about 5 miles per second).
+        This means that the Space Station orbits Earth (and sees a sunrise) once every 92 minutes.
+      </p>
       <p class='mt-4'>
-        The International Space Station travels in orbit around Earth at a speed of roughly 17,150 miles per hour (that's about 5 miles per second!).
-        This means that the Space Station orbits Earth (and sees a sunrise) once every 92 minutes!
-        </p>
+        Here are a few live facts and figures taken from NASA's API's
+      </p>
+
         <hr class='sm-hr'/>
+        </div>
     </div>
     <div class='row'>
-      <div class='col text-center mt-4'>
+      <div class='col text-center'>
         <h2 class='question'>How many people are in space right now?</h2>
         <button class="btn btn-lg question-btn question1">Answer</button>
         <div class='text-center'>
@@ -44,7 +48,7 @@
                   <ul>
                     {% for person in spaceperson %}
                     <li>
-                      {{ person.name }} - in the {{ person.craft }} spacecraft
+                      {{ person.name }} - {{ person.craft }}
                       </li>
                     {% endfor %}
 
@@ -62,7 +66,7 @@
         <h4>The ISS is currently over:
           <span class='location-text'>{{ place.name}}, {{place.admin1}} {{place.cc}}</span>
         </h4>
-        <button class='btn btn-lg question-btn location-btn'>Update location</button>
+        <button class='btn btn-secondary location-btn mt-4 mb-4'>Update location</button>
         <!--The div element for the map -->
         <div class='map' id="map"></div>
       </div>
