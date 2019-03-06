@@ -1,0 +1,76 @@
+{% extends 'base.html' %}{% load static %}
+{% block title %}Space{% endblock %}
+{% block content %}
+<div class='container-fluid'>
+
+  <img class='iss-img' src="{% static 'images/space-station.jpg' %}"/>
+  </div>
+<div class='container text-center'>
+  <div class='row'>
+
+    <div class='col text-center'>
+      <img class='rocket-img' src="{% static 'images/icon-rocket.png' %}"/>
+        <h1 class='page-title mt-4 '>The International Space Station</h1>
+      </div>
+      <p class='mt-4'>
+        The International Space Station travels in orbit around Earth at a speed of roughly 17,150 miles per hour (that's about 5 miles per second!).
+        This means that the Space Station orbits Earth (and sees a sunrise) once every 92 minutes!
+        </p>
+        <hr class='sm-hr'/>
+    </div>
+    <div class='row'>
+      <div class='col text-center mt-4'>
+        <h2 class='question'>How many people are in space right now?</h2>
+        <button class="btn btn-lg question-btn question1">Answer</button>
+        <div class='text-center'>
+          <span class='num-answer'>
+            {{res}}
+            </span>
+              <hr class='sm-hr'/>
+          </div>
+
+        </div>
+
+          </div>
+
+            <div class='col text-center'>
+              <h2 class='question'>Who are they?</h2>
+              <button class="btn btn-lg question-btn question2">Answer</button>
+
+              </div>
+              <div class='col text-center'>
+                <div class='mt-4 spaceperson'>
+
+                  <ul>
+                    {% for person in spaceperson %}
+                    <li>
+                      {{ person.name }} - in the {{ person.craft }} spacecraft
+                      </li>
+                    {% endfor %}
+
+                    </ul>
+                  </div>
+                    <hr class='sm-hr'/>
+                </div>
+
+
+    <h2 class='question mt-4'>Where is the International Space Station right now?</h2>
+
+      <button class='btn btn-lg question-btn question3'>Answer</button>
+
+      <div class='location-div'>
+        <h4>The ISS is currently over:
+          <span class='location-text'>{{ place.name}}, {{place.admin1}} {{place.cc}}</span>
+        </h4>
+        <button class='btn btn-lg question-btn location-btn'>Update location</button>
+        <!--The div element for the map -->
+        <div class='map' id="map"></div>
+      </div>
+      <hr class='sm-hr'/>
+
+
+
+
+</div>
+
+  {% endblock %}

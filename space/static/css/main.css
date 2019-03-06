@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|ZCOOL+QingKe+HuangYou');
+h1 {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 3em;
+}
+
+
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+
+p {
+  line-height: 1.5;
+}
+#map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+        margin: 20px 0px;
+       }
+.question {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 2.4em;
+  margin: 20px;
+}
+
+.question-btn {
+  display: block;
+  margin: 40px auto;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: yellow;
+  color: black;
+}
+ul {
+  list-style: none;
+  font-size: 1.5em;
+}
+
+.spaceperson {
+  display: none;
+}
+
+.location-div{
+  display: none;
+}
+
+.sm-hr{
+  height: 3px;
+  width: 300px;
+  background-color: silver;
+  margin-bottom: 80px;
+  margin-top: 40px;
+}
+
+.rocket-img {
+  margin: 40px;
+}
+.iss-img {
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+}
+
+.num-answer {
+  display: none;
+  font-size: 5em;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+.space-card {
+  color: black;
+}
