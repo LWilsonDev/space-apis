@@ -28,7 +28,7 @@ p {
 }
 #map {
         height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
+        width: 95%;  /* The width is the width of the web page */
         margin: 20px 0px;
        }
 .question {
@@ -57,9 +57,6 @@ li {
   display: none;
 }
 
-.location-div{
-  display: none;
-}
 
 .sm-hr{
   height: 5px;

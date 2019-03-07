@@ -7,9 +7,7 @@
    $('.question2').on('click', function(){
      $('.spaceperson').show();
    });
-   $('.question3').on('click', function(){
-     $('.location-div').show();
-   });
+   
 
 
    req = $.ajax({
@@ -53,3 +51,11 @@ var map = new google.maps.Map(
 // The marker, positioned at Uluru
 var marker = new google.maps.Marker({position: location, map: map});
 }
+
+// Potential bug fix for googlemap on mobile
+//https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+addEventListener(document, "touchstart", function(e) {
+    console.log(e.defaultPrevented);  // will be false
+    e.preventDefault();   // does nothing since the listener is passive
+    console.log(e.defaultPrevented);  // still false
+  }, Modernizr.passiveeventlisteners ? {passive: true} : false);
