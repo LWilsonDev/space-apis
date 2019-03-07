@@ -2,15 +2,11 @@
 {% block title %}Space{% endblock %}
 {% block content %}
 <div class='container-fluid iss-img'>
-
-
-  </div>
+</div>
 <div class='container text-center'>
   <div class='row'>
-
     <div class='col text-center'>
         <h1 class='page-title '>The International Space Station</h1>
-
       <p class='info'>
         The International Space Station travels in orbit around Earth at a speed of roughly 17,150 miles per hour (that's about 5 miles per second).
         This means that the Space Station orbits Earth (and sees a sunrise) once every 92 minutes.
@@ -18,9 +14,8 @@
       <p class='mt-4'>
         Here are a few live facts and figures taken from NASA's API's
       </p>
-
         <hr class='sm-hr'/>
-        </div>
+    </div>
     </div>
     <div class='row'>
       <div class='col text-center'>
@@ -29,50 +24,35 @@
         <div class='text-center'>
           <span class='num-answer'>
             {{res}}
-            </span>
-              <hr class='sm-hr'/>
-          </div>
-
+          </span>
+            <hr class='sm-hr'/>
         </div>
-
-          </div>
-
-            <div class='col text-center'>
-              <h2 class='question'>Who are they?</h2>
-              <button class="btn btn-lg question-btn question2">Click</button>
-
-              </div>
-              <div class='col text-center'>
-                <div class='mt-4 spaceperson'>
-
-                  <ul>
-                    {% for person in spaceperson %}
-                    <li>
-                      {{ person.name }} - {{ person.craft }}
-                      </li>
-                    {% endfor %}
-
-                    </ul>
-                  </div>
-                    <hr class='sm-hr'/>
-                </div>
-
-
-    <h2 class='question mt-4'>Where is the International Space Station right now?</h2>
-
-      <div class=''>
-        <h4>The ISS is currently over:
-          <span class='location-text'>{{ place.name}}, {{place.admin1}} {{place.cc}}</span>
-        </h4>
-        <button class='btn btn-secondary location-btn mt-4 mb-4'>Update location</button>
-        <!--The div element for the map -->
-        <div style="width: 95%; height: 400px;" class='map' id="map"></div>
+      </div>
+    </div>
+    <div class='col text-center'>
+      <h2 class='question'>Who are they?</h2>
+      <button class="btn btn-lg question-btn question2">Click</button>
+    </div>
+    <div class='col text-center'>
+      <div class='mt-4 spaceperson'>
+          <ul>
+            {% for person in spaceperson %}
+            <li>
+              {{ person.name }} - {{ person.craft }}
+            </li>
+            {% endfor %}
+          </ul>
       </div>
       <hr class='sm-hr'/>
-
-
-
-
+    </div>
+    <h2 class='question mt-4'>Where is the International Space Station right now?</h2>
+    <h4>The ISS is currently over:
+      <span class='location-text'>{{ place.name}}, {{place.admin1}} {{place.cc}}</span>
+    </h4>
+    <button class='btn btn-secondary location-btn mt-4 mb-4'>Update location</button>
+      <!--The div element for the map -->
+    <div class='map' id="map"></div>
+      <hr class='sm-hr'/>
 </div>
 
   {% endblock %}
