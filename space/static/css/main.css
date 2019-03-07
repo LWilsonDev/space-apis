@@ -30,6 +30,7 @@ p {
         height: 400px;  /* The height is 400 pixels */
         width: 95%;  /* The width is the width of the web page */
         margin: 20px 0px;
+        overflow:visible;
        }
 .question {
   font-family: 'ZCOOL QingKe HuangYou', cursive;
