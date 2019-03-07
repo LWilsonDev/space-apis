@@ -13,7 +13,7 @@
 
 
    req = $.ajax({
-     url : "/space/space_station",
+     url : "",
      type : "GET",
      success: function(data) {
        console.log(data);
@@ -30,7 +30,7 @@
       //console.log(locationText);
 
       req = $.ajax({
-        url : "/space/space_station",
+        url : "",
         type : "GET",
         success: function(data) {
           console.log(data);

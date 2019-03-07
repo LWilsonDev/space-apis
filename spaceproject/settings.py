@@ -32,7 +32,10 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = ['space-apis.herokuapp.com']
+ALLOWED_HOSTS = ['space-apis.herokuapp.com',
+                '127.0.0.1:8000',
+                '127.0.0.1',
+                    ]
 
 
 # Application definition
