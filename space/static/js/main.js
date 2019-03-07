@@ -32,7 +32,7 @@
         url : "",
         type : "GET",
         success: function(data) {
-          console.log(data);
+
           $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + " " + data['cc'] + '</span>');
           var lat = data['lat'];
           var lng = data['lon'];
