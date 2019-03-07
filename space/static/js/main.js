@@ -1,5 +1,5 @@
  $(document).ready(function(event) {
-
+   $.ajaxSetup({ cache: false }); 
    detectBrowser();
 
    $('.question1').on('click', function(){
