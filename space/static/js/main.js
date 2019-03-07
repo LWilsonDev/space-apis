@@ -1,5 +1,5 @@
  $(document).ready(function(event) {
-
+   google.maps.event.trigger(map, "resize");
 
    $('.question1').on('click', function(){
      $('.num-answer').show();
@@ -7,7 +7,7 @@
    $('.question2').on('click', function(){
      $('.spaceperson').show();
    });
-   
+
 
 
    req = $.ajax({
