@@ -62,11 +62,12 @@ li {
 }
 
 .sm-hr{
-  height: 3px;
-  width: 300px;
+  height: 5px;
+  width: 100px;
   background-color: silver;
+  border-bottom: 1px solid gray;
   margin-bottom: 80px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .rocket-img {
@@ -77,9 +78,12 @@ li {
   padding: 0px;
 }
 .iss-img {
+  background-image: url('../images/space-station.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   min-width: 100%;
-  height: auto;
-  margin-top: 40px;
+  min-height: 75vh;
 }
 
 .num-answer {
@@ -87,6 +91,16 @@ li {
   font-size: 5em;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
-.space-card {
-  color: black;
+.web-link{
+  text-decoration: none;
+  color: white;
+}
+.web-link:hover, .weblink:active{
+  text-decoration: none;
+  color: teal;
+}
+.footer-name{
+  margin: 40px;
+  font-size: 1em;
+  color: gray;
 }
