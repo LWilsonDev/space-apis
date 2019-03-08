@@ -1,5 +1,5 @@
  $(document).ready(function(event) {
-
+   $.ajaxSetup({ cache: false });
    detectBrowser();
 
    $('.question1').on('click', function(){
@@ -11,39 +11,32 @@
 
 
    // get location on page load
-   req = $.ajax({
-     url : "",
-     type : "GET",
-     success: function(data) {
-       //console.log(data);
-       $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + " " + data['cc'] + '</span>');
-       var lat = data['lat'];
-       var lng = data['lon'];
-       var location = {lat: parseFloat(lat), lng: parseFloat(lng)};
-       initMap(location);
-     }
+   call_ajax();
    });
 
    // get new location on button click
    $('.location-btn').on('click', function(){
-      var locationText = $('.location-text').html();
-
-      req = $.ajax({
-        url : "",
-        type : "GET",
-        success: function(data) {
-
-          $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + " " + data['cc'] + '</span>');
-          var lat = data['lat'];
-          var lng = data['lon'];
-          var location = {lat: parseFloat(lat), lng: parseFloat(lng)};
-          initMap(location);
+      call_ajax();
         }
 
    });
 
  });
 });
+
+function call_ajax(){
+  req = $.ajax({
+    url : "",
+    type : "GET",
+    success: function(data) {
+      //console.log(data);
+      $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + " " + data['cc'] + '</span>');
+      var lat = data['lat'];
+      var lng = data['lon'];
+      var location = {lat: parseFloat(lat), lng: parseFloat(lng)};
+      initMap(location);
+    }
+};
 
 function detectBrowser() {
 var useragent = navigator.userAgent;
