@@ -20,7 +20,7 @@
 
 function call_ajax(){
   req = $.ajax({
-    url : "/",
+    url : "",
     type : "GET",
     success: function(data) {
       //console.log(data);
