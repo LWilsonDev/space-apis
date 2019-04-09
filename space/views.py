@@ -4,6 +4,8 @@ import reverse_geocoder as rg
 import pprint
 import json
 from django.http import Http404, HttpResponse
+from django.conf import settings
+from .forms import DateForm
 
 
 
@@ -22,9 +24,10 @@ def space_station(request):
 
         return render(request, 'space/space_station.html', {'res':res, 'spaceperson':spaceperson, 'place':place})
 
+
 def get_location():
     #Get ISS location
-    response = requests.get("http://api.open-notify.org/iss-now.json")
+    response = "http://api.open-notify.org/iss-now.json"
 
     data = response.json()
     #Get long and lat from data
@@ -42,3 +45,30 @@ def get_location():
 
 
     #return obj['iss_position']['latitude'], obj['data']['iss_position']['latitude']
+def apod(request):
+
+    if request.method=='POST':
+        form = DateForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            print(date)
+
+
+        response=requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key={}'.format(date, settings.API_KEY))
+        data=response.json()
+
+        #data=response.json()
+    else:
+        form=DateForm()
+        response=requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(settings.API_KEY))
+        data=response.json()
+    context = {
+    'data': data,
+    'form': form,
+    }
+    return render(request, 'space/apod.html', context)
+
+
+#Data looks like: {'copyright': 'Cory Schmitz', 'date': '2019-04-09', 'explanation': "Sometimes Saturn disappears. It doesn't really go away, though, it just disappears from view when our Moon moves in front.  Such a Saturnian eclipse was visible along a small swath of Earth -- from Brazil to Sri Lanka -- near the end of last month. The featured color image is a digital fusion of the clearest images captured by successive videos of the event taken in red, green, and blue, and taken separately for Saturn and the comparative bright Moon.  The exposures were taken from South Africa just before occultation -- and also just before sunrise. When Saturn re-appeared on the other side of the Moon almost two hours later, the Sun had risen. This year, eclipses of Saturn by the Moon occur almost monthly, but, unfortunately, are visible only to those with the right location and with clear and dark skies.   Follow APOD on Instagram: English or Persian", 'hdurl': 'https://apod.nasa.gov/apod/image/1904/SaturnMoon_Schmitz_1445.jpg', 'media_type': 'image', 'service_version': 'v1', 'title': 'Moon Occults Saturn', 'url': 'https://apod.nasa.gov/apod/image/1904/SaturnMoon_Schmitz_960.jpg'}
+
+# to add a date query: https://api.nasa.gov/planetary/apod?date=2019-02-02&api_key={}.format(settings.API_KEY)
