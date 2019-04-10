@@ -2,18 +2,43 @@
 {% block title %}Space{% endblock %}
 {% block content %}
 <h1>APOD</h1>
+<h2>NASA's Astronomy Picture of the Day</h2>
 
-<h2>{{data.title}}</h2>
+<h3>{{data.title}}</h3>
 <p>
   {{data.explanation}}
-  </p>
-<img style='height:500px; width:auto;' src="{{data.url}}"/>
+</p>
+{% if video %}
+<iframe width="560" height="315" src="{{ data.url }}" frameborder="0" allowfullscreen></iframe>
+{% else %}
+<img style='height:500px; width:auto;' src="{{data.url}}" />
+{% endif %}
+
+{% if data.copyright %}
+<p><small>
+    Image Credit: {{ data.copyright }}
+  </small></p>
+{% else %}
+<p><small>
+    Image in public domain
+  </small></p>
+{% endif %}
+
 
 <form method="POST">
-  {{ form }}
+  {{ form.date }}
   {% csrf_token %}
-  <input type='submit' value='Find'/>
-  </form>
+  <input type='submit' value='Find' />
+</form>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger" role="alert">
+  {{ message|safe }}
+
+</div>
+{% endfor %}
+{% endif %}
+
 
 
 

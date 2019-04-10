@@ -6,6 +6,8 @@ import json
 from django.http import Http404, HttpResponse
 from django.conf import settings
 from .forms import DateForm
+from django.contrib import messages
+from datetime import date
 
 
 
@@ -27,7 +29,7 @@ def space_station(request):
 
 def get_location():
     #Get ISS location
-    response = "http://api.open-notify.org/iss-now.json"
+    response = requests.get("http://api.open-notify.org/iss-now.json")
 
     data = response.json()
     #Get long and lat from data
@@ -50,21 +52,25 @@ def apod(request):
     if request.method=='POST':
         form = DateForm(request.POST)
         if form.is_valid():
-            date = form.cleaned_data['date']
-            print(date)
+            the_date = form.cleaned_data['date']
+            response=requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key={}'.format(the_date.date(), settings.API_KEY))
+            data=response.json()
+        else:
+            return HttpResponse('no because {}'.format(form))
 
 
-        response=requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key={}'.format(date, settings.API_KEY))
-        data=response.json()
-
-        #data=response.json()
     else:
         form=DateForm()
         response=requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(settings.API_KEY))
         data=response.json()
+    if data['media_type'] == 'video':
+        video = True
+    else:
+        video = False
     context = {
     'data': data,
     'form': form,
+    'video': video,
     }
     return render(request, 'space/apod.html', context)
 
