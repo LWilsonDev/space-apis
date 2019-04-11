@@ -16,6 +16,21 @@
 </head>
 
 <body>
+
+  <nav class="my-nav navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand brand-text" href="#"><img class='brand' src="{% static 'images/nasa.png'%}"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="my-nav navbar-nav">
+      <a class="nav-item nav-link {{ home_page}}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link {{ iss_page}}" href="{% url 'space_station' %}">ISS</a>
+      <a class="nav-item nav-link {{apod_page}}" href="{% url 'apod' %}">APOD</a>
+      <a class="nav-item nav-link disabled {{mars_page}}" href="#">Mars Rover (coming soon)</a>
+    </div>
+  </div>
+</nav>
    {% block content %}{% endblock %}
 <footer>
 

@@ -9,6 +9,11 @@ from .forms import DateForm
 from django.contrib import messages
 from datetime import date
 
+def home(request):
+    context = {
+    'home_page': 'active',
+    }
+    return render(request, 'space/home.html', context)
 
 
 def space_station(request):
@@ -23,8 +28,13 @@ def space_station(request):
         if request.is_ajax():
             data = json.dumps(place)
             return HttpResponse(data, content_type='application/json')
-
-        return render(request, 'space/space_station.html', {'res':res, 'spaceperson':spaceperson, 'place':place})
+        context = {
+        "iss_page": "active",
+        'res':res,
+        'spaceperson':spaceperson,
+        'place':place
+        }
+        return render(request, 'space/space_station.html', context)
 
 
 def get_location():
@@ -71,6 +81,7 @@ def apod(request):
     'data': data,
     'form': form,
     'video': video,
+    "apod_page": "active",
     }
     return render(request, 'space/apod.html', context)
 

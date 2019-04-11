@@ -21,14 +21,14 @@
 
        format:'Y-m-d',
        timepicker:false,
-       minDate:'-1990/06/16',
+       minDate:'-1995/06/16',
        maxDate:0,
        theme:'dark',
 
     });
    });
 
-  
+
  });
 
 function call_ajax(){
