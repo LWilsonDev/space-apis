@@ -1,6 +1,5 @@
  $(document).ready(function(event) {
    $.ajaxSetup({ cache: false });
-   detectBrowser();
 
    $('.question1').on('click', function(){
      $('.num-answer').show();
@@ -9,20 +8,28 @@
      $('.spaceperson').show();
    });
 
-
    // get location on page load
    call_ajax();
-   });
 
    // get new location on button click
    $('.location-btn').on('click', function(){
       call_ajax();
-        }
-
    });
 
+   $(function () {
+     $("#id_date").datetimepicker({
+
+       format:'Y-m-d',
+       timepicker:false,
+       minDate:'-1995/06/16',
+       maxDate:0,
+       theme:'dark',
+
+    });
+   });
+
+
  });
-});
 
 function call_ajax(){
   req = $.ajax({
@@ -36,25 +43,13 @@ function call_ajax(){
       var location = {lat: parseFloat(lat), lng: parseFloat(lng)};
       initMap(location);
     }
+  });
 };
 
-function detectBrowser() {
-var useragent = navigator.userAgent;
-var mapdiv = document.getElementById("map");
-
-if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
- mapdiv.style.width = '100%';
- mapdiv.style.height = '100%';
-} else {
- mapdiv.style.width = '80%';
- mapdiv.style.height = '400px';
-}
-}
 
 // Initialize and add the map
 function initMap(location) {
 var map = new google.maps.Map(
   document.getElementById('map'), {zoom: 3, center: location});
-// The marker, positioned at Uluru
 var marker = new google.maps.Marker({position: location, map: map});
 }
