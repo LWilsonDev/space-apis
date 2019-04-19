@@ -63,7 +63,7 @@ def apod(request):
         form = DateForm(request.POST)
         if form.is_valid():
             the_date = form.cleaned_data['date']
-            response=requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key={}'.format(the_date.date(), settings.API_KEY))
+            response=requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key={}'.format(the_date.date(), settings.APOD_API_KEY))
             data=response.json()
         else:
             return HttpResponse('no because {}'.format(form))
@@ -71,7 +71,7 @@ def apod(request):
 
     else:
         form=DateForm()
-        response=requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(settings.API_KEY))
+        response=requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(settings.APOD_API_KEY))
         data=response.json()
     if data['media_type'] == 'video':
         video = True

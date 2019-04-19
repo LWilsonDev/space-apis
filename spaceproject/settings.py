@@ -31,7 +31,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = os.environ['SECRET_KEY']
 SECRET_KEY = config('SECRET_KEY')
-API_KEY = config('API_KEY')
+APOD_API_KEY = config('APOD_API_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'space',
     'storages',
-    
+
 ]
 
 MIDDLEWARE = [
