@@ -16,6 +16,19 @@
       call_ajax();
    });
 
+   $(function () {
+     $("#id_date").datetimepicker({
+
+       format:'Y-m-d',
+       timepicker:false,
+       minDate:'-1995/06/16',
+       maxDate:0,
+       theme:'dark',
+
+    });
+   });
+
+
  });
 
 function call_ajax(){
@@ -38,6 +51,5 @@ function call_ajax(){
 function initMap(location) {
 var map = new google.maps.Map(
   document.getElementById('map'), {zoom: 3, center: location});
-// The marker, positioned at Uluru
 var marker = new google.maps.Marker({position: location, map: map});
 }

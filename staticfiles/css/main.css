@@ -7,7 +7,11 @@ h1 {
 
 
 body {
-  background-color: black;
+  background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   color: white;
   font-family: 'Open Sans', sans-serif;
 
@@ -19,6 +23,22 @@ p {
   font-size: 1.2em;
 }
 
+
+.brand {
+  height: 50px;
+  width:auto;
+}
+.mynav {
+  background-color: blue;
+}
+.mynav,a{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 1.5em;
+  color: gold;
+  text-transform: uppercase;
+}
+
+}
 .info {
   margin-top: 40px;
 }
@@ -46,6 +66,12 @@ p {
   background-color: yellow;
   color: black;
 }
+
+a.link-btn{
+
+
+  color: black;
+}
 ul {
   list-style: none;
   font-size: 1.5em;
@@ -59,6 +85,17 @@ li {
   display: none;
 }
 
+.subtitle {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  letter-spacing: 1.2;
+  margin: 40px auto;
+  font-size: 2.3em;
+}
+.logo-large {
+  height: 200px;
+  width: auto;
+  margin: 40px auto;
+}
 
 .sm-hr{
   height: 5px;
@@ -69,12 +106,29 @@ li {
   margin-top: 60px;
 }
 
-.rocket-img {
-  margin: 40px;
+.apod-media {
+  margin: 40px auto 10px auto;
+  height: 300px;
+  width: auto;
+  max-width: 90%;
+}
+.form-card {
+  color: gray;
+  width: 90%;
+  margin: 40px auto;
 }
 
-.container-fluid {
-  padding: 0px;
+.search-btn {
+  display: inline-block;
+}
+.media-credit {
+  font-size: 0.8em;
+
+}
+
+.text-block{
+  margin: 20px auto;
+  max-width: 90%;
 }
 .iss-img {
   background-image: url('../images/space-station.jpg');
@@ -83,6 +137,10 @@ li {
   background-repeat: no-repeat;
   min-width: 100%;
   min-height: 75vh;
+}
+iframe {
+  width:95%;
+  height:auto;
 }
 
 .num-answer {
@@ -93,6 +151,7 @@ li {
 .web-link{
   text-decoration: none;
   color: white;
+  font-size: 1em;
 }
 .web-link:hover, .weblink:active{
   text-decoration: none;
@@ -102,4 +161,36 @@ li {
   margin: 40px;
   font-size: 1em;
   color: gray;
+}
+
+
+@media (min-width: 768px) {
+  .apod-media {
+    height: 500px;
+    width: auto;
+  }
+  .form-card {
+    width: 80%;
+  }
+
+  .text-block{
+    max-width: 80%;
+  }
+  iframe {
+  width:560px;
+  height:315px;
+}
+ }
+
+
+@media (min-width: 992px) {
+  .form-card {
+    width: 70%;
+  }
+  .apod-media {
+    height: 600px;
+    width: auto;
+  }
+
+
 }
