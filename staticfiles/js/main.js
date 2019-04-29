@@ -1,12 +1,10 @@
  $(document).ready(function(event) {
-   $.ajaxSetup({
-     cache: false
-   });
+   $.ajaxSetup({ cache: false });
 
-   $('.question1').on('click', function() {
+   $('.question1').on('click', function(){
      $('.num-answer').show();
    });
-   $('.question2').on('click', function() {
+   $('.question2').on('click', function(){
      $('.spaceperson').show();
    });
 
@@ -14,62 +12,45 @@
    call_ajax();
 
    // get new location on button click
-   $('.location-btn').on('click', function() {
-     call_ajax();
+   $('.location-btn').on('click', function(){
+      call_ajax();
    });
 
-   $(function() {
+   $(function () {
      $("#id_date").datetimepicker({
 
-       format: 'Y-m-d',
-       timepicker: false,
-       minDate: '-1995/06/16',
-       maxDate: 0,
-       theme: 'dark',
-       focusOnShow: false,
-       ignoreReadonly: true
+       format:'Y-m-d',
+       timepicker:false,
+       minDate:'-1995/06/16',
+       maxDate:0,
+       theme:'dark',
 
-     }).on('dp.show', function(e) {
-       $(e.target).on('mousedown', function(e) {
-         $(e.target).data("DateTimePicker").hide();
-         e.preventDefault();
-       });
-     }).on('dp.hide', function(e) {
-       $(e.target).off('mousedown');
-     });
+    }).attr('readonly','readonly');
+    
    });
 
 
  });
 
- function call_ajax() {
-   req = $.ajax({
-     url: "",
-     type: "GET",
-     success: function(data) {
-       //console.log(data);
-       $('.location-text').html('<span>' + data['name'] + ', ' + data['admin1'] + " " + data['cc'] + '</span>');
-       var lat = data['lat'];
-       var lng = data['lon'];
-       var location = {
-         lat: parseFloat(lat),
-         lng: parseFloat(lng)
-       };
-       initMap(location);
-     }
-   });
- };
+function call_ajax(){
+  req = $.ajax({
+    url : "",
+    type : "GET",
+    success: function(data) {
+      //console.log(data);
+      $('.location-text').html('<span>' + data['name']+ ', ' + data['admin1'] + " " + data['cc'] + '</span>');
+      var lat = data['lat'];
+      var lng = data['lon'];
+      var location = {lat: parseFloat(lat), lng: parseFloat(lng)};
+      initMap(location);
+    }
+  });
+};
 
 
- // Initialize and add the map
- function initMap(location) {
-   var map = new google.maps.Map(
-     document.getElementById('map'), {
-       zoom: 3,
-       center: location
-     });
-   var marker = new google.maps.Marker({
-     position: location,
-     map: map
-   });
- }
+// Initialize and add the map
+function initMap(location) {
+var map = new google.maps.Map(
+  document.getElementById('map'), {zoom: 3, center: location});
+var marker = new google.maps.Marker({position: location, map: map});
+}

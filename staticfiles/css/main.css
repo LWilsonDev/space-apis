@@ -108,9 +108,8 @@ li {
 
 .apod-media {
   margin: 40px auto 10px auto;
-  height: 300px;
-  width: auto;
-  max-width: 90%;
+  width:95%;
+  height:auto;
 }
 .form-card {
   color: gray;
@@ -163,6 +162,10 @@ iframe {
   color: gray;
 }
 
+.search-btn {
+  margin-top: 10px;
+}
+
 
 @media (min-width: 768px) {
   .apod-media {
@@ -179,7 +182,12 @@ iframe {
   iframe {
   width:560px;
   height:315px;
-}
+  }
+  .search-btn {
+    margin-top: 0px;
+  }
+
+
  }
 
 
