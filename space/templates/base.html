@@ -18,16 +18,15 @@
 <body>
 
   <nav class="my-nav navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand brand-text" href="{% url 'home' %}"><img class='brand' src="{% static 'images/icon-rocket.png'%}"/></a>
+  <a class="navbar-brand brand-text" href="{% url 'home' %}"><img class='brand' src="{% static 'images/nasa.png'%}"/></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="my-nav navbar-nav">
-      <a class="nav-item nav-link {{ home_page}}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link {{ iss_page}}" href="{% url 'space_station' %}">ISS</a>
+      <a class="nav-item nav-link {{ home_page}}" href="{% url 'home' %}">Home</a>
       <a class="nav-item nav-link {{apod_page}}" href="{% url 'apod' %}">APOD</a>
-      <a class="nav-item nav-link disabled {{mars_page}}" href="#">Mars Rover (coming soon)</a>
+      <a class="nav-item nav-link {{ iss_page}}" href="{% url 'space_station' %}">ISS</a>
     </div>
   </div>
 </nav>
@@ -38,6 +37,7 @@
     Website by <a class='web-link' href="http://lucywilson.me">Lucy Wilson</a>
     </p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

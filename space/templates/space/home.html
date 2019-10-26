@@ -1,34 +1,29 @@
 {% extends 'base.html' %}{% load static %}
 {% block title %}Space{% endblock %}
 {% block content %}
+<div id="particles-js" ></div>
 <div class='container-fluid'>
   <div class='row'>
     <div class='col'>
       <div class='text-center mt-4'>
-        <img class='logo-large' src="{% static 'images/icon-rocket.png' %}"/>
         <h1 class='title'>NASA Data</h1>
-        <p class='lead text-block'>Welcome. Here you will find an exploration of the data provided by NASA to allow developers access to images and information.
-          <br /><br />
-          I have put together some fun facts utilising NASA's API's - partly as an excersise in web development for my own progression and education, but I hope it might also be interesting! Here is what you can find:
+        <p class='lead text-block'>Welcome. Here you will find an exploration of the data provided by NASA to allow developers access to images and information
         </p>
         <hr class='sm-hr'/>
+        <h3 class='subtitle'>APOD - Astronomy Picture Of the Day</h3>
+          <p class='text-block'>
+            APOD is NASA's most popular website. Here I have added search functionality - now you can not only see today's image, but search through over 20 years of APOD's!
+            </p>
+            <a class="btn btn-info btn-lg " href="{% url 'apod' %}">View APOD</a>
+            <hr class='sm-hr'/>
         <h3 class='subtitle'>ISS - The International Space Station</h3>
         <p class='text-block'>
           Find out how many people are in space right now, and follow the ISS as it travels above the Earth at roughly 17,150 miles per hour!
           </p>
           <a class="btn btn-info btn-lg " href="{% url 'space_station'%}">View ISS Info</a>
           <hr class='sm-hr'/>
-          <h3 class='subtitle'>APOD - Astronomy Picture Of the Day</h3>
-          <p class='text-block'>
-            APOD is NASA's most popular website. Here I have added search functionality - now you can not only see today's image, but search through over 20 years of APOD's!
-            </p>
-            <a class="btn btn-info btn-lg " href="{% url 'apod' %}">View APOD</a>
-            <hr class='sm-hr'/>
-            <h3 class='subtitle'>Mars Rover - Coming Soon!</h3>
-            <p class='text-block'>
-              View images from the 3 rovers currently documenting the surface of Mars. NASA have provided an API to view the images stored on all 3 rovers, and you can even select which camera to view from.
-              </p>
-              <hr class='sm-hr'/>
+          
+            
       </div>
     </div>
   </div>
