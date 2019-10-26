@@ -23,6 +23,12 @@ p {
   font-size: 1.2em;
 }
 
+#particles-js {
+  background-image: url('../images/nasa.png');
+  background-size:60%;
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+}
 
 .brand {
   height: 50px;
@@ -199,6 +205,9 @@ iframe {
     height: 600px;
     width: auto;
   }
-
+  #particles-js {
+  background-size:40%;
+  
+}
 
 }
