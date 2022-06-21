@@ -10,7 +10,7 @@ gunicorn==19.9.0
 idna==2.8
 jmespath==0.9.4
 kiwisolver==1.0.1
-numpy==1.16.2
+numpy==1.22.0
 Pillow==5.4.1
 pprint==0.1
 pyparsing==2.3.1
